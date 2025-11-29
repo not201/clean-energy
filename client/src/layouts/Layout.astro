@@ -24,17 +24,32 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
 
-  <body class="bg-slate-50 text-slate-800 min-h-screen antialiased font-inter">
-    <header>
-      <Navbar />
-    </header>
+  <body>
+    <div class="bg-slate-50 text-slate-800 min-h-screen antialiased font-inter">
+      <header>
+        <Navbar />
+      </header>
 
-    <main class="w-full pt-40">
-      <div class="w-full max-w-[1500px] mx-auto px-4 md:px-10 py-10 space-y-20">
-        <div class="w-full flex flex-col space-y-20 [&>*]:w-full">
-          <slot />
+      <main class="w-full pt-10">
+        <div
+          class="w-full max-w-[1500px] mx-auto px-4 md:px-10 py-10 space-y-20"
+        >
+          <div class="w-full flex flex-col space-y-20 *:w-full">
+            <slot />
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </div>
   </body>
 </html>
+
+<style is:global>
+  html {
+    background: oklch(13% 0.028 261.692);
+    margin: 0;
+    color: oklch(96.7% 0.003 264.542);
+  }
+  body {
+    margin: 0;
+  }
+</style>

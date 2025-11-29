@@ -9,10 +9,9 @@ const sections = [
 ---
 
 <nav
-  class="fixed z-40 h-24 w-full grid grid-cols-3 px-20 place-content-center place-items-center shadow-[0_15px_50px_rgba(6,182,212,0.4)] overflow-hidden rounded-2xl m-2"
+  class="fixed z-40 h-20 w-full grid grid-cols-3 place-content-center place-items-center shadow-[0_15px_50px_rgba(6,182,212,0.4)] overflow-hidden"
   style="background: linear-gradient(135deg, #0284c7 0%, #3196a8 20%, #22d3ee 40%, #4e9ea8 60%, #a5f3fc 80%, #485761 100%);"
 >
-  <!-- Ondas de fondo -->
   <div class="absolute inset-0 opacity-30">
     <div
       class="absolute w-[500px] h-[500px] bg-gradient-to-br from-cyan-300 to-blue-400 rounded-full blur-3xl -top-60 -left-40 animate-wave"
@@ -28,7 +27,6 @@ const sections = [
     </div>
   </div>
 
-  <!-- Rayos -->
   <div class="absolute top-0 left-0 w-full h-full opacity-20">
     <div
       class="absolute top-0 left-1/4 w-1 h-full bg-gradient-to-b from-yellow-300 via-transparent to-transparent transform -skew-x-12"
@@ -44,15 +42,13 @@ const sections = [
     </div>
   </div>
 
-  <!-- Espuma -->
   <div
     class="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white/30 via-cyan-100/20 to-transparent"
   >
   </div>
 
-  <!-- LOGO -->
   <div
-    class="relative z-10 place-self-start self-center flex items-center gap-4"
+    class="relative z-10 place-self-center self-center flex items-center gap-4"
   >
     <div
       class="w-14 h-14 rounded-3xl bg-gradient-to-br from-yellow-300 to-amber-400 flex items-center justify-center shadow-2xl border-2 border-white/60 relative overflow-hidden"
@@ -79,8 +75,9 @@ const sections = [
     </div>
   </div>
 
-  <!-- LINKS -->
-  <ul class="flex gap-10 items-center justify-center w-full relative z-10">
+  <ul
+    class="flex gap-10 items-center justify-center w-full relative z-10 col-span-2"
+  >
     {
       sections.map((section) => (
         <li
@@ -98,8 +95,6 @@ const sections = [
       ))
     }
   </ul>
-
-  <!-- AQUÍ YA NO ESTÁ EL CAMBIO DE IDIOMA -->
 </nav>
 
 <style>
