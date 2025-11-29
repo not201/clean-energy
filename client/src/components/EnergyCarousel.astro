@@ -1,0 +1,320 @@
+---
+const cards = [
+  {
+    title: "Hoteles implementan Paneles Solares",
+    kicker: "En San Andres:",
+    image: "/card-1.jpeg",
+    url: "https://www.kayak.com.co/Hoteles-en-San-Andres.48144.hotel.ksp?sck=SEM&skipapp=true",
+  },
+  {
+    title: "Energía Eolica",
+    kicker: "San Andres y la",
+    image: "/card-2.jpeg",
+    url: "https://www.radionacional.co/noticias-colombia/energia-eolica-en-san-andres",
+  },
+  {
+    title: "1000 paneles solares en el oceano",
+    kicker: "Se implementaron mas de",
+    image: "/card-3.jpeg",
+    url: "https://www.informacion.es/medio-ambiente/2024/02/19/paneles-solares-flotantes-mar-novedoso-98363877.html",
+  },
+  {
+    title: "Paneles solares en la region insular",
+    kicker: "cada vez mas personas usan",
+    image: "/card-4.jpeg",
+    url: "https://fueradered.com/proyectos-casas-cabanas/",
+  },
+  {
+    title: "Aumenta el uso energías limpias",
+    kicker: "San Andres:",
+    image: "/card-5.jpeg",
+    url: "https://www.xn--elisleo-9za.com/index.php?option=com_content&view=article&id=29912:2024-09-09-20-59-32",
+  },
+];
+---
+
+<section
+  class="bg-gradient-to-br from-white via-sky-50 to-teal-50 rounded-3xl shadow-2xl p-16 md:p-20 w-full border border-sky-100"
+>
+  <!-- 🔵 Recuadro de Noticias -->
+  <div class="w-full flex justify-center mt-6 mb-4">
+    <div
+      class="px-6 py-2 bg-sky-100 border border-sky-300 text-sky-700 font-semibold rounded-full text-lg shadow-sm"
+    >
+      📰 Noticias · Energías Limpias
+    </div>
+  </div>
+  <!-- 🔵 Fin del recuadro -->
+
+  <div class="cards-wrapper" data-energy-carousel>
+    <button
+      class="carousel-nav carousel-nav--prev"
+      data-carousel-prev
+      aria-label="Anterior"
+    >
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+
+    <div class="cards-stage">
+      {
+        cards.map((card, index) => (
+          <article
+            class="energy-card"
+            data-card={index}
+            aria-label={card.title}
+          >
+            <a
+              href={card.url}
+              class="energy-card__inner"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <div
+                class="energy-card__image"
+                style={`background-image: url('${card.image}');`}
+              />
+              <div class="energy-card__overlay" />
+              <div class="energy-card__label">
+                <p class="energy-card__kicker">{card.kicker}</p>
+                <h3 class="energy-card__title">{card.title}</h3>
+              </div>
+            </a>
+          </article>
+        ))
+      }
+    </div>
+
+    <button
+      class="carousel-nav carousel-nav--next"
+      data-carousel-next
+      aria-label="Siguiente"
+    >
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+  </div>
+</section>
+
+<style>
+  .carousel-section {
+    width: 100%;
+    background: white;
+    padding: 0;
+    margin: 0;
+  }
+
+  .cards-wrapper {
+    width: 100%;
+    height: 450px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .cards-stage {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .energy-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 320px;
+    height: 400px;
+    border-radius: 2rem;
+    overflow: hidden;
+    background-color: #e5e7eb;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transform: translate(-50%, -50%);
+    transition:
+      transform 400ms,
+      opacity 400ms,
+      filter 400ms;
+    cursor: pointer;
+    opacity: 0;
+    filter: brightness(0.75);
+    z-index: 1;
+  }
+
+  .energy-card__image {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .energy-card__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0)
+    );
+  }
+
+  .energy-card__label {
+    position: absolute;
+    top: 1.4rem;
+    left: 1.4rem;
+    right: 1.4rem;
+    color: white;
+    z-index: 2;
+  }
+
+  .energy-card__kicker {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    opacity: 0.9;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+  }
+
+  .energy-card__title {
+    font-size: 1.35rem;
+    font-weight: 800;
+  }
+
+  .energy-card--center {
+    transform: translate(-50%, -50%) scale(1.12);
+    opacity: 1;
+    filter: brightness(1);
+    z-index: 5;
+  }
+
+  .energy-card--left {
+    transform: translate(calc(-50% - 380px), -50%) scale(0.85);
+    opacity: 0.5;
+    z-index: 4;
+  }
+
+  .energy-card--right {
+    transform: translate(calc(-50% + 380px), -50%) scale(0.85);
+    opacity: 0.5;
+    z-index: 4;
+  }
+
+  .energy-card--far-left {
+    transform: translate(calc(-50% - 640px), -50%) scale(0.7);
+    opacity: 0;
+  }
+
+  .energy-card--far-right {
+    transform: translate(calc(-50% + 640px), -50%) scale(0.7);
+    opacity: 0;
+  }
+
+  .energy-card--hidden {
+    opacity: 0;
+  }
+
+  .carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+  }
+
+  .carousel-nav--prev {
+    left: 0;
+  }
+
+  .carousel-nav--next {
+    right: 0;
+  }
+
+  .carousel-nav:hover {
+    transform: translateY(-50%) scale(1.1);
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    const wrapper = document.querySelector("[data-energy-carousel]");
+    if (!wrapper) return;
+
+    const cards = Array.from(wrapper.querySelectorAll("[data-card]"));
+    const prevBtn = document.querySelector("[data-carousel-prev]");
+    const nextBtn = document.querySelector("[data-carousel-next]");
+
+    if (!cards.length) return;
+
+    let current = 0;
+
+    function applyState() {
+      const total = cards.length;
+
+      cards.forEach((card, idx) => {
+        const offset = idx - current;
+
+        card.classList.remove(
+          "energy-card--center",
+          "energy-card--left",
+          "energy-card--right",
+          "energy-card--far-left",
+          "energy-card--far-right",
+          "energy-card--hidden"
+        );
+
+        if (offset === 0) card.classList.add("energy-card--center");
+        else if (offset === -1 || (current === 0 && idx === total - 1))
+          card.classList.add("energy-card--left");
+        else if (offset === 1 || (current === total - 1 && idx === 0))
+          card.classList.add("energy-card--right");
+        else if (offset === -2) card.classList.add("energy-card--far-left");
+        else if (offset === 2) card.classList.add("energy-card--far-right");
+        else card.classList.add("energy-card--hidden");
+      });
+    }
+
+    function goTo(i) {
+      current = (i + cards.length) % cards.length;
+      applyState();
+    }
+
+    prevBtn.onclick = () => goTo(current - 1);
+    nextBtn.onclick = () => goTo(current + 1);
+
+    applyState();
+  })();
+</script>

@@ -1,7 +1,43 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import AnimatedHeader from "../components/AnimatedHeader.jsx";
+import Presentacion from "../components/Presentacion.astro";
+import RecursosNaturales from "../components/RecursosNaturales.astro";
+import BeneficiosSociales from "../components/BeneficiosSociales.astro";
+import EnergyCarousel from "../components/EnergyCarousel.astro";
+
+import RevealLeft from "../components/iu/RevealLeft.jsx";
+import RevealRight from "../components/iu/RevealRight.jsx";
 ---
 
 <Layout
   title="Energía Limpia para el Futuro: Recursos Solares y Eólicos en la región insular"
-/>
+>
+  <section id="inicio" class="w-full py-12">
+    <AnimatedHeader client:load />
+  </section>
+
+  <section id="recursos" class="w-full py-12">
+    <RevealLeft client:load>
+      <RecursosNaturales />
+    </RevealLeft>
+  </section>
+
+  <section id="beneficios" class="w-full py-12">
+    <RevealRight client:load>
+      <BeneficiosSociales />
+    </RevealRight>
+  </section>
+
+  <section id="noticias" class="w-full py-12">
+    <RevealLeft client:load>
+      <EnergyCarousel />
+    </RevealLeft>
+  </section>
+
+  <section id="info" class="w-full py-12">
+    <RevealRight client:load>
+      <Presentacion />
+    </RevealRight>
+  </section>
+</Layout>
